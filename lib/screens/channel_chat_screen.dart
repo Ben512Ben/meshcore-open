@@ -23,6 +23,7 @@ import '../helpers/marker_message.dart';
 import '../helpers/message_url_image_helper.dart';
 import '../helpers/path_helper.dart';
 import '../helpers/reaction_helper.dart';
+import '../helpers/repeater_report.dart';
 import '../helpers/snack_bar_builder.dart';
 import '../l10n/l10n.dart';
 import '../models/channel.dart';
@@ -38,6 +39,7 @@ import '../services/translation_service.dart';
 import '../utils/image_save.dart';
 import '../utils/lora_airtime.dart';
 import '../widgets/marker_label_dialog.dart';
+import '../widgets/repeater_report_chart.dart';
 import '../widgets/received_image_message.dart';
 import '../widgets/channel_notification_mode_sheet.dart';
 import '../widgets/chat_day_separator.dart';
@@ -704,6 +706,13 @@ class _ChannelChatScreenState extends State<ChannelChatScreen> {
     const bodyFontSize = 14.0;
 
     Widget buildTextContent() {
+      if (!isOutgoing && RepeaterReport.looksLikeReport(message.text)) {
+        return RepeaterReportView(
+          text: message.text,
+          textColor: textColor,
+          textScale: textScale,
+        );
+      }
       return Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,

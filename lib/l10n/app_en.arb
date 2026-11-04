@@ -3749,5 +3749,9 @@
   "holidayGreeting_newYear": "Happy New Year|Happy New Year's",
   "@holidayGreeting_newYear": {
     "description": "Holiday greeting that plays the New Year's fireworks animation when it appears in a chat message. Matched in every app language and ignoring case and punctuation, so translate it as people actually write the greeting. Separate alternative phrasings with |."
-  }
+  },
+  "repeaterReport_voltage": "Battery voltage (hourly)",
+  "repeaterReport_temperature": "Temperature (hourly)",
+  "repeaterReport_battery": "Battery % (hourly)",
+  "repeaterReport_now": "now"
 }

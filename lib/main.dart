@@ -480,7 +480,7 @@ class _MeshCoreAppState extends State<MeshCoreApp> with WidgetsBindingObserver {
         builder: (context, settingsService, child) {
           final customTheme = settingsService.activeCustomTheme;
           return MaterialApp(
-            title: 'MeshCore Open',
+            title: 'MeshCore Advanced',
             debugShowCheckedModeBanner: false,
             localizationsDelegates: const [
               AppLocalizations.delegate,

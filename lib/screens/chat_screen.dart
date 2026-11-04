@@ -15,6 +15,8 @@ import '../connector/meshcore_protocol.dart';
 import '../helpers/cyr2lat.dart';
 import '../helpers/message_url_image_helper.dart';
 import '../helpers/path_helper.dart';
+import '../helpers/repeater_report.dart';
+import '../widgets/repeater_report_chart.dart';
 import '../helpers/reaction_helper.dart';
 import '../widgets/message_status_icon.dart';
 import '../widgets/empty_state.dart';
@@ -1325,6 +1327,13 @@ class _MessageBubble extends StatelessWidget {
         : (translatedDisplayText != messageText ? messageText : null);
 
     Widget buildTextContent() {
+      if (!isOutgoing && RepeaterReport.looksLikeReport(messageText)) {
+        return RepeaterReportView(
+          text: messageText,
+          textColor: textColor,
+          textScale: textScale,
+        );
+      }
       return Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
